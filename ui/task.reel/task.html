@@ -9,12 +9,37 @@
             "properties": {
                 "element": {"#": "owner"}
             }
+        },
+        "checkbox": {
+            "prototype": "montage/ui/checkbox.reel",
+            "properties": {
+                "element": {"#": "checkbox"},
+                "checked": true
+            },
+            "bindings": {
+                "checked": {"<->": "@owned.task.completed"}
+            }
+        },
+        "textField": {
+            "prototype": "montage/ui/text-field.reel",
+            "properties": {
+                "element": {"#": "textField"},
+                "contenteditable": "true",
+                "dir": "ltr",
+                "draggable": "true",
+                "value": "Text"
+            },
+            "bindings": {
+                "value": {"<-": "@owner.task.title"}
+            }
         }
     }
     </script>
 </head>
 <body>
     <div data-montage-id="owner" class="Task">
+        <input type="checkbox" data-montage-id="checkbox">
+        <input data-montage-id="textField" type="text">
     </div>
 </body>
 </html>
